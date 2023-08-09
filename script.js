@@ -38,7 +38,7 @@ function generatePassword() {
       passChar = passChar + specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
     }
   }
-  console.log(passChar);
+  return(passChar);
 
 }
 
