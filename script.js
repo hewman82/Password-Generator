@@ -27,6 +27,18 @@ function generatePassword() {
   var includeLower = prompt('Would you like to include Lower Case letters?').toLowerCase();
   var includeSpecial = prompt('Would you like to include Special Characters?').toLowerCase();
   
+  for(i = 0; i < passLength; i++) {
+    if(includeLower == 'yes' && passChar.length < passLength) {
+      passChar = passChar + lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    }
+    if(includeUpper == 'yes' && passChar.length < passLength) {
+      passChar = passChar + upperCase[Math.floor(Math.random() * upperCase.length)];
+    }
+    if(includeSpecial == 'yes' && passChar.length < passLength) {
+      passChar = passChar + specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+    }
+  }
+  console.log(passChar);
 
 }
 
