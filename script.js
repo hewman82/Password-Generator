@@ -1,7 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Declare prompt input variables
+let passLength = 0;
+let includeUpper;
+let includeLower;
+let includeSpecial;
 
-// Character lists
+// Declare and define variables for character lists
 let specialCharacters = ['!','"','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'];
 let upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -16,12 +21,13 @@ function writePassword() {
 }
 
 function generatePassword() {
-  // Character length prompt
-  var passLength = prompt('Please choose a character length between 8 and 128 characters');
-  // Tests that character length is within acceptable range
-  if (passLength < 8 || passLength > 128) {
-    alert('Please choose a character length between 8 and 128');
-    } 
+  // Test character length prompt input for numbers outside acceptable range and non-number input, store valid input as variable
+  do { 
+    passLength = prompt('Please choose a character length between 8 and 128 characters');
+    if (isNaN(passLength)) {
+      return("Not a number! Please try again.");
+    }
+  } while (passLength < 8 || passLength > 128);
 
   var includeUpper = prompt('Would you like to include Upper Case letters?').toLowerCase();
   var includeLower = prompt('Would you like to include Lower Case letters?').toLowerCase();
@@ -45,15 +51,6 @@ function generatePassword() {
 
   
   
-
-
-
-
-
-
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
