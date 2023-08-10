@@ -2,9 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 // Declare prompt input variables
 let passLength = 0;
-let includeUpper;
-let includeLower;
-let includeSpecial;
+
 
 // Declare and define variables for character lists
 let specialCharacters = ['!','"','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[',']','^','_','`','{','|','}','~'];
@@ -25,22 +23,22 @@ function generatePassword() {
   do { 
     passLength = prompt('Please choose a character length between 8 and 128 characters');
     if (isNaN(passLength)) {
-      return("Not a number! Please try again.");
+      return ('Not a number! Please try again.');
     }
   } while (passLength < 8 || passLength > 128);
 
-  var includeUpper = prompt('Would you like to include Upper Case letters?').toLowerCase();
-  var includeLower = prompt('Would you like to include Lower Case letters?').toLowerCase();
-  var includeSpecial = prompt('Would you like to include Special Characters?').toLowerCase();
+  var includeUpper = confirm('Would you like to include Upper Case letters?');
+  var includeLower = confirm('Would you like to include Lower Case letters?');
+  var includeSpecial = confirm('Would you like to include Special Characters?');
   
   for(i = 0; i < passLength; i++) {
-    if(includeLower == 'yes' && passChar.length < passLength) {
+    if(includeLower === true && passChar.length < passLength) {
       passChar = passChar + lowerCase[Math.floor(Math.random() * lowerCase.length)];
     }
-    if(includeUpper == 'yes' && passChar.length < passLength) {
+    if(includeUpper === true && passChar.length < passLength) {
       passChar = passChar + upperCase[Math.floor(Math.random() * upperCase.length)];
     }
-    if(includeSpecial == 'yes' && passChar.length < passLength) {
+    if(includeSpecial === true && passChar.length < passLength) {
       passChar = passChar + specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
     }
   }
