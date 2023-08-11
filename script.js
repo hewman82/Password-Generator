@@ -38,23 +38,23 @@ function generatePassword() {
   alert ('You have selected ' + passLength + ' characters.');
 
   // Allow user to select character types to include
-  var includeUpper = confirm('Would you like to include Upper Case letters?');
-  if (includeUpper === true) {
-    alert ('Upper Case characters will be included.')
-  }
   var includeLower = confirm('Would you like to include Lower Case letters?');
-  if (includeLower === true) {
+  if (includeLower) {
     alert ('Lower Case characters will be included.')
   }
+  var includeUpper = confirm('Would you like to include Upper Case letters?');
+  if (includeUpper) {
+    alert ('Upper Case characters will be included.')
+  }
   var includeNumbers = confirm('Would you like to include Numbers?');
-  if (includeNumbers === true) {
+  if (includeNumbers) {
     alert ('Numbers will be included.');
   }
   var includeSpecial = confirm('Would you like to include Special Characters?');
-  if (includeSpecial === true) {
+  if (includeSpecial) {
     alert ('Special Characters will be included');
   }
-  if (includeLower === false && includeUpper === false && includeNumbers === false && includeSpecial === false) {
+  if (!includeLower && !includeUpper && !includeNumbers && !includeSpecial) {
     alert ('Please select at least one character type.');
     return('Try again.');
   }
@@ -82,7 +82,6 @@ function generatePassword() {
   return(passChar);
 
 }
-
 
 
 // Add event listener to generate button
