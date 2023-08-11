@@ -1,6 +1,6 @@
 # Password Generator
 ## Description
-This is a random password generator that will create passwords with a character length of 8-128 characters and gives you the option of including lowercase, uppercase, and special characters. 
+This is a random password generator that will create passwords with a character length of 8-128 characters and gives you the option of including lowercase letters, uppercase letters, numbers, and special characters.
 ![screenshot](https://github.com/hewman82/Password-Generator/blob/main/PG-Screenshots/Screenshot%20(17).png)
 ![screenshot](https://github.com/hewman82/Password-Generator/blob/main/PG-Screenshots/Screenshot%20(18).png)
 ## Usage
