@@ -2,9 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 
-let passLength = 0;
-
-
 // Declare and define variables for character lists
 let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 let upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -22,7 +19,6 @@ function writePassword() {
 function generatePassword() {
   
   let passChar = "";
-  let finalChar = "";
 
   // Loop character length prompt until user enters a number within the acceptable range, store valid input as variable
   do { 
@@ -31,20 +27,37 @@ function generatePassword() {
     // Alert and exit function if the input is not a number
     if (isNaN(passLength)) {
       alert ('Not a number! Please try again.')
-      return("Try again.");
+      return ('Try again.');
     }
     // Exit function if the user cancels
     if (passLength === null) {
       return ("Try again.");
     }
-    // Repeat until the number is within the acceptable range
+    // Repeat until a number within the acceptable range is entered
   } while (passLength < 8 || passLength > 128);
+  alert ('You have selected ' + passLength + ' characters.');
 
   // Allow user to select character types to include
   var includeUpper = confirm('Would you like to include Upper Case letters?');
+  if (includeUpper === true) {
+    alert ('Upper Case characters will be included.')
+  }
   var includeLower = confirm('Would you like to include Lower Case letters?');
+  if (includeLower === true) {
+    alert ('Lower Case characters will be included.')
+  }
   var includeNumbers = confirm('Would you like to include Numbers?');
+  if (includeNumbers === true) {
+    alert ('Numbers will be included.');
+  }
   var includeSpecial = confirm('Would you like to include Special Characters?');
+  if (includeSpecial === true) {
+    alert ('Special Characters will be included');
+  }
+  if (includeLower === false && includeUpper === false && includeNumbers === false && includeSpecial === false) {
+    alert ('Please select at least one character type.');
+    return('Try again.');
+  }
   
   // Generate random characters within character lists depending on selected character types and character length, loop until selected length is reached
   for(i = 0; i < passLength; i++) {
@@ -64,12 +77,9 @@ function generatePassword() {
       passChar = passChar + specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
     }
   }
-  console.log(passChar);
 
+  // Return generated password
   return(passChar);
-
-
-
 
 }
 
